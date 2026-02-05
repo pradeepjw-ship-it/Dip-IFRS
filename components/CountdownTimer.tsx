@@ -50,7 +50,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({ mode = 'default'
             <div className={`flex flex-wrap items-center justify-center gap-1.5 text-[10px] sm:text-xs font-semibold text-red-600 bg-red-50 px-3 py-1.5 rounded-full w-fit max-w-full animate-pulse ${className}`}>
                 <Clock size={12} className="flex-shrink-0" />
                 <span className="text-center">
-                    Applications closing for the next batch closes in: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m
+                    Applications for the next batch close in: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m
                 </span>
             </div>
         );

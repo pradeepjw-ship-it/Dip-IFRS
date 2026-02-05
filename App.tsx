@@ -15,7 +15,8 @@ import {
     Monitor,
     Video,
     ShieldCheck,
-    Star
+    Star,
+    ArrowRight
 } from 'lucide-react';
 import { Button } from './components/Button';
 import { LeadForm } from './components/LeadForm';
@@ -82,69 +83,102 @@ const Navbar = ({ onEnquire }: { onEnquire: () => void }) => {
 
 const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => {
     return (
-        <section className="relative pt-20 pb-8 lg:pt-32 lg:pb-12 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
-            {/* Abstract Background Shapes */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-yellow-100/30 -skew-x-12 translate-x-1/4 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-100/30 rounded-full blur-3xl -translate-x-1/4 translate-y-1/4 pointer-events-none" />
+        <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-20 bg-white overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            
+            {/* Ambient Light Orbs */}
+            <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-lakshya-blue/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-lakshya-yellow/10 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/4 pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
                     
                     {/* Left Content */}
-                    <div className="text-center lg:text-left">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-lakshya-blue/20 shadow-sm mb-4 animate-fade-in-up">
-                            <ShieldCheck className="w-4 h-4 text-lakshya-teal" />
-                            <span className="text-xs font-bold text-lakshya-blue tracking-wide uppercase">ACCA Approved Platinum Partner</span>
+                    <div className="text-center md:text-left flex flex-col items-center md:items-start">
+                        {/* Trust Badge */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-lakshya-blue mb-6 animate-fade-in-up">
+                            <ShieldCheck className="w-4 h-4 fill-current" />
+                            <span className="text-[11px] font-bold tracking-wider uppercase">ACCA Approved Platinum Partner</span>
                         </div>
                         
-                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-extrabold text-lakshya-blue leading-tight mb-4">
-                            ACCA Dip IFRS Course: <br/>
-                            <span className="text-lakshya-skyblue">Master IFRS. Elevate Your Career.</span>
+                        {/* Headline */}
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-gray-900 leading-[1.1] mb-6 tracking-tight">
+                            ACCA Dip IFRS <br className="hidden lg:block" />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-lakshya-blue to-lakshya-teal">
+                                Diploma Course
+                            </span>
                         </h1>
-                        
-                        <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-4 font-heading text-sm sm:text-base">
-                            <div className="bg-white/80 px-4 py-2 rounded-md border border-gray-200 shadow-sm text-gray-800 flex flex-col">
-                                <span className="text-gray-500 text-[10px] uppercase tracking-wider">Earning Potential</span>
-                                <span className="font-bold text-lakshya-blue">Up to ₹ 15 LPA</span>
-                            </div>
-                            <div className="bg-white/80 px-4 py-2 rounded-md border border-gray-200 shadow-sm text-gray-800 flex flex-col">
-                                <span className="text-gray-500 text-[10px] uppercase tracking-wider">Duration</span>
-                                <span className="font-bold text-lakshya-blue">3 - 6 Months</span>
-                            </div>
-                        </div>
-
-                        <div className="flex justify-center lg:justify-start mb-6">
-                            <CountdownTimer mode="micro" />
-                        </div>
-
-                        <p className="text-base md:text-lg text-gray-600 mb-6 font-serif leading-relaxed max-w-lg mx-auto lg:mx-0">
-                            Join 50,000+ alumni who have transformed their careers with IIC Lakshya. Learn from industry experts and master IFRS standards globally.
+                        <p className="text-lg md:text-xl font-medium text-gray-700 mb-6 max-w-xl leading-relaxed">
+                             Fast-track your finance career with the globally recognized ACCA DipIFR qualification. Learn from the experts at India's leading commerce institute.
                         </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                            <div className="flex items-center gap-2 text-gray-700 bg-white/50 px-3 py-1 rounded-full">
-                                <Globe size={18} className="text-lakshya-teal" />
-                                <span className="font-semibold text-sm">Accepted in 140 Countries</span>
+                        
+                        {/* Key Stats Cards */}
+                        <div className="grid grid-cols-2 gap-4 w-full max-w-md mb-8">
+                            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-lakshya-yellow/50 transition-colors group text-left">
+                                <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-1">Earning Potential</p>
+                                <div className="flex items-baseline gap-1">
+                                    <span className="text-2xl font-bold text-gray-900 group-hover:text-lakshya-blue transition-colors">₹30+</span>
+                                    <span className="text-lg font-bold text-gray-900">LPA</span>
+                                </div>
                             </div>
-                            <div className="flex items-center gap-2 text-gray-700 bg-white/50 px-3 py-1 rounded-full">
-                                <TrendingUp size={18} className="text-lakshya-teal" />
-                                <span className="font-semibold text-sm">Avg. 50% Salary Hike</span>
+                            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:border-lakshya-yellow/50 transition-colors group text-left">
+                                <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-1">Duration</p>
+                                <div className="flex items-baseline gap-1">
+                                    <span className="text-2xl font-bold text-gray-900 group-hover:text-lakshya-blue transition-colors">3-6</span>
+                                    <span className="text-sm font-medium text-gray-600">Months</span>
+                                </div>
                             </div>
                         </div>
 
-                        {/* CTA - Check Eligibility */}
-                        <div className="flex flex-col items-center lg:items-start">
-                            <Button onClick={onOpenForm} variant="primary" className="shadow-xl shadow-yellow-200 w-full sm:w-auto px-8">
-                                Check Eligibility
+                        {/* Description */}
+                        <p className="text-base text-gray-600 mb-8 font-serif leading-relaxed max-w-lg">
+                            Join 50,000+ alumni who have transformed their careers with IIC Lakshya.
+                        </p>
+                        
+                        {/* Micro Timer */}
+                         <div className="mb-8 w-full md:w-auto">
+                            <CountdownTimer mode="micro" className="justify-center md:justify-start" />
+                        </div>
+
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                            <Button onClick={onOpenForm} variant="primary" className="shadow-lg shadow-yellow-500/20 px-8 py-4 text-base h-14 w-full sm:w-auto">
+                                Download Brochure
                             </Button>
-                            <span className="text-[10px] text-gray-500 font-medium mt-2">Free Profile Assessment</span>
+                            <Button onClick={() => document.getElementById('curriculum')?.scrollIntoView({ behavior: 'smooth' })} variant="outline" className="px-8 py-4 text-base h-14 bg-white/50 backdrop-blur-sm w-full sm:w-auto">
+                                View Curriculum
+                            </Button>
                         </div>
+                        <p className="text-xs text-gray-500 mt-3 font-medium flex items-center gap-1">
+                            <Check className="w-3 h-3 text-green-500" /> Free Profile Assessment included
+                        </p>
                     </div>
 
-                    {/* Right Content - Lead Form (Desktop Inline, Hidden Mobile) */}
-                    <div className="hidden lg:block relative" id="lead-form-desktop">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-white rounded-full opacity-40 blur-3xl -z-10"></div>
-                        <LeadForm embedded className="transform hover:-translate-y-1 transition-transform duration-300" title="Enquire for Admissions" />
+                    {/* Right Content - Form */}
+                    <div className="hidden md:block relative w-full max-w-md mx-auto lg:ml-auto">
+                        {/* Decor elements behind form */}
+                        <div className="absolute -top-12 -right-12 w-24 h-24 bg-lakshya-yellow/20 rounded-full blur-2xl animate-pulse"></div>
+                        <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-lakshya-blue/10 rounded-full blur-2xl"></div>
+                        
+                        <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl shadow-blue-900/5 border border-white/50 p-2 transform transition-transform hover:-translate-y-1 duration-300">
+                             {/* Override embedded styles to fit glassmorphism */}
+                             <div className="bg-white rounded-xl overflow-hidden">
+                                <LeadForm embedded className="!shadow-none !border-t-0" title="Enquire for Admissions" subtitle="Get brochure & free counselling" />
+                             </div>
+                        </div>
+                        
+                        {/* Floating Badge */}
+                        <div className="absolute -right-6 top-1/2 -translate-y-1/2 bg-white p-3 rounded-lg shadow-lg border border-gray-100 flex flex-col items-center gap-1 animate-[bounce_3s_infinite]">
+                             <div className="flex -space-x-2">
+                                {[1,2,3].map(i => (
+                                    <div key={i} className="w-7 h-7 rounded-full bg-gray-100 border-2 border-white flex items-center justify-center overflow-hidden">
+                                        <Users size={14} className="text-gray-400" />
+                                    </div>
+                                ))}
+                             </div>
+                             <p className="text-[10px] font-bold text-lakshya-blue whitespace-nowrap">500+ Enrolled</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -347,10 +381,11 @@ const HiringPartners = () => {
 
     return (
         <section className="py-8 bg-white border-b border-gray-100">
-            <div className="max-w-7xl mx-auto px-4 mb-6 text-center">
-                <h3 className="text-lg font-heading font-semibold text-gray-500 uppercase tracking-widest">
+            <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
+                 <h3 className="text-2xl md:text-3xl font-heading font-bold text-lakshya-blue">
                     Our Alumni Work At
                 </h3>
+                <div className="w-16 h-1 bg-lakshya-yellow mx-auto mt-2 rounded-full"></div>
             </div>
             <Marquee>
                 {partners.map((partner, idx) => (
@@ -377,19 +412,27 @@ const FAQ = () => {
     const items = [
         {
             title: "What is the format of the DipIFR exam?",
-            content: "The exam is a 3-hour 15-minute written paper held twice a year (June and December). It consists of four questions appearing in two sections, requiring a mix of calculations and explanations."
+            content: "The exam is a 3-hour 15-minute written paper held twice a year (June and December). It consists of four questions appearing in two sections, requiring a mix of calculations and explanations. The passing mark is 50%."
         },
         {
-            title: "Can I do DipIFR along with my job?",
-            content: "Yes, absolutely. The course is designed for working professionals with flexible weekend batches and online learning options."
+            title: "Who awards the Diploma?",
+            content: "The Diploma is awarded by the Association of Chartered Certified Accountants (ACCA), UK, which is a globally recognized professional accounting body."
         },
         {
-            title: "Is IIC Lakshya an approved learning partner?",
-            content: "Yes, IIC Lakshya is an ACCA Approved Platinum Learning Partner, ensuring the highest standards of tuition and student support."
+            title: "What are the exam fees?",
+            content: "The exam fee is approximately £185 (subject to change by ACCA) which is payable directly to ACCA. IIC Lakshya provides full assistance in the registration and payment process."
         },
         {
-            title: "Does IIC Lakshya provide placement assistance?",
-            content: "Yes, we have a dedicated placement cell that connects our DipIFR graduates with top audit firms and MNCs. Our strong alumni network in Big 4 firms is a major advantage."
+            title: "What happens if I miss a live class?",
+            content: "Don't worry! All live sessions are recorded and uploaded to our state-of-the-art Learning Management System (LMS). You can access these recordings anytime, anywhere for revision."
+        },
+        {
+            title: "How does DipIFR differ from the full ACCA qualification?",
+            content: "DipIFR is a specialized, single-exam qualification strictly focused on IFRS standards, designed for professionals who already have a finance background. The full ACCA qualification is a comprehensive program with multiple papers covering various aspects of finance and accounting."
+        },
+        {
+            title: "Is there any exemption for the exam?",
+            content: "There are generally no exemptions for the DipIFR exam itself. It is a standalone qualification designed to test your knowledge of IFRS."
         }
     ];
 
@@ -471,19 +514,19 @@ export default function App() {
                 <section className="py-16 bg-lakshya-blue relative overflow-hidden">
                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div className="text-center lg:text-left">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            <div className="text-center md:text-left">
                                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6 leading-tight">
                                     Start Your Journey to Becoming a Global Accountant
                                 </h2>
                                 <p className="text-blue-100 mb-8 text-lg font-sans leading-relaxed">
                                     Don't miss out on the opportunity to elevate your career with ACCA DipIFR. Join the next batch at IIC Lakshya.
                                 </p>
-                                <div className="hidden lg:block">
+                                <div className="hidden md:block">
                                      <CountdownTimer />
                                 </div>
                                 {/* Mobile Button */}
-                                 <div className="lg:hidden">
+                                 <div className="md:hidden">
                                     <Button variant="primary" onClick={() => openModal("Start Application")} fullWidth>
                                         Apply Now
                                     </Button>
@@ -492,7 +535,7 @@ export default function App() {
                             </div>
                             
                             {/* Desktop Form */}
-                            <div className="hidden lg:block bg-white rounded-xl shadow-2xl p-1">
+                            <div className="hidden md:block bg-white rounded-xl shadow-2xl p-1">
                                  <LeadForm embedded title="Secure Your Spot" subtitle="Fill the form to get started" />
                             </div>
                         </div>
