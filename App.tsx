@@ -150,8 +150,12 @@ const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => {
                                 View Curriculum
                             </Button>
                         </div>
-                        <p className="text-xs text-gray-500 mt-3 font-medium flex items-center gap-1">
-                            <Check className="w-3 h-3 text-green-500" /> Free Profile Assessment included
+                        <p className="text-xs text-gray-600 mt-3 font-medium flex items-center gap-2">
+                            <span className="flex h-2 w-2 relative">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                            </span>
+                            <span>Limited seats available! Get Fee Structure & Batch Details instantly.</span>
                         </p>
                     </div>
 
